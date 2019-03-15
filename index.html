@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Matheus Alves Developer</title>
+    <meta name="description" content="Matheus Alves Developer" />
+    <meta name="theme-color" content="#D6D3DF" />
+    <link rel="shortcut icon" href="/images/icons/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <a href="https://github.com/mhsalves" target="_blank" rel="noreferrer">
+            <img src="./images/profile.jpg" alt="Imagem do profile" />
+        </a>
+      </div>
+      <h2>Este cara está</h2>
+      <h2 class="loading-container">Desenvolvendo</h2>
+    </div>
+    <script src="./scripts.js" charset="utf-8"></script>
+    <script type="text/javascript" async>
+      startLoading("Desenvolvendo", ".loading-container");
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(function (registration) {
+              console.log('Service Worker Registered');
+            });
+
+          navigator.serviceWorker.ready.then(function (registration) {
+            console.log('Service Worker Ready');
+          });
+        }
+    </script>
+  </body>
+</html>
