@@ -24,8 +24,6 @@ body {
   position: absolute;
   left: 8px;
   top: 8px;
-
-  transition: top 0.4s ease;
 }
 
 #block-container {

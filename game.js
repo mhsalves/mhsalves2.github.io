@@ -12,8 +12,11 @@ var containerHeight = 0;
 var playerWidth = 0;
 var playerHeight = 0;
 
+var playerMoveDirection = 'up';
+
 var creationLoop;
 var moveLoop;
+var playerMoveLoop;
 
 // Utils methods.
 function isInArray(value, array) {
@@ -86,6 +89,27 @@ function moveBlocks() {
   }, 20);
 }
 
+function movePlayer() {
+  playerMoveLoop = setTimeout(function() {
+    if (!canMovePlayer) { return; }
+
+    const playerTop = getPixel(getComputedStyle(player).top);
+    const playerSteps = 5;
+
+    console.log(playerMoveDirection);
+    console.log("oiiiiii", playerTop, margin, playerTop > margin);
+    console.log("aaaa", playerTop - playerHeight, containerHeight - margin, playerTop - playerHeight < containerHeight - margin);
+
+    if (playerMoveDirection === 'up' && playerTop > margin) {
+      player.style.top = (playerTop - playerSteps) + 'px';
+    } else if (playerMoveDirection === 'down' && playerTop + playerHeight + margin < containerHeight) {
+      player.style.top = (playerTop + playerSteps) + 'px';
+    }
+
+    movePlayer();
+  }, 10);
+}
+
 // This method checks if some block colides with player.
 function checkCollision(block) {
   const playerTop = getPixel(getComputedStyle(player).top);
@@ -115,6 +139,7 @@ function startGame() {
   if (!stopped) {
     createBlocks();
     moveBlocks();
+    movePlayer();
   }
 }
 
@@ -148,12 +173,12 @@ function loadGameProperties() {
 
     if (isInArray(e.keyCode, upKey)) {
       validStartGame();
-      player.style.top = calcTop('up');
+      playerMoveDirection = 'up';
     }
 
     if (isInArray(e.keyCode, downKey)) {
       validStartGame();
-      player.style.top = calcTop('down');
+      playerMoveDirection = 'down';
     }
   }
 }
