@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F9F7FC;
+}
+
+.game-container {
+  width: 320px;
+  height: 140px;
+  border: 1px solid black;
+  margin: 16px auto;
+  overflow: hidden;
+  position: relative;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#player {
+  background: red;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  left: 8px;
+  top: 8px;
+
+  transition: top 0.4s ease;
+}
+
+#block-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#block-container .block {
+  position: absolute;
+  right: 8px;
+  width: 4px;
+  height: 60px;
+  background: green;
+}
+
+#block-container .block.up {
+  top: 0;
+}
+
+#block-container .block.down {
+  bottom: 0;
+}
