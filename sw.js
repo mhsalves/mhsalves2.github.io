@@ -10,8 +10,11 @@
 const CACHE_NAME = 'matheusalves-dev-v1';
 const urlsToCache = [
   '/',
+  '/game.html',
   '/styles.css',
   '/scripts.js',
+  '/game.css',
+  '/game.js',
 ];
 
 self.addEventListener('install', (event) => {
