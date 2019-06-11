@@ -7,9 +7,19 @@
     <link rel="stylesheet" type="text/css" href="./game.css" />
   </head>
   <body onload="loadGameProperties()">
+    <div id="score-container">0</div>
     <div class="game-container">
       <div id="player"></div>
       <div id="block-container"></div>
+    </div>
+    <div id="rules-container">
+      <h3>Regras</h3>
+      <ul>
+        <li>O jogo inicia caso clique em qualquer botão de movimento ou no botão de reiniciar.</li>
+        <li>As teclas <code>W</code> e <code>I</code> movimentam pra <span>cima</span>.</li>
+        <li>As teclas <code>S</code> e <code>K</code> movimentam pra <span>baixo</span>.</li>
+        <li>Jogador <span>PERDE</span> caso a <span>bolinha</span> encostar na <span>barra</span>.</li>
+      </ul>
     </div>
     <script src="./game.js" charset="utf-8"></script>
   </body>

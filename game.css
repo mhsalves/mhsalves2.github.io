@@ -2,6 +2,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #F9F7FC;
+  font-family: helvetica, catamaran, fantasy;
+  color: #312B45;
 }
 
 .game-container {
@@ -49,4 +51,47 @@ body {
 
 #block-container .block.down {
   bottom: 0;
+}
+
+#score-container {
+  margin: 16px auto;
+  width: 320px;
+  text-align: center;
+  font-size: 36px;
+}
+
+#rules-container {
+  background: #E8E6F0;
+  width: 320px;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 16px auto;
+  box-sizing: border-box;
+  box-shadow: 0 .0625rem .25rem 0 rgba(0, 0, 0, .2);
+}
+
+#rules-container h3 {
+  margin: 0;
+}
+
+#rules-container ul {
+  list-style-position: outside;
+  padding: 0px 16px;
+}
+
+#rules-container ul li {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+#rules-container ul li span{
+  font-weight: bold;
+  color: #503A98;
+}
+
+#rules-container ul li code{
+  font-weight: bold;
+  color: #503A98;
+  background: #F9F7FC;
+  padding: 2px 6px;
 }
