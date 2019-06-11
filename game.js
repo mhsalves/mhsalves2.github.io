@@ -12,6 +12,8 @@ var containerHeight = 0;
 var playerWidth = 0;
 var playerHeight = 0;
 
+var score = 0;
+
 var playerMoveDirection = 'up';
 
 var creationLoop;
@@ -51,6 +53,7 @@ function calcTop(toPosition) {
 function loadGlobally() {
   player = document.getElementById('player'); // Load Player variable.
   blockContainer = document.getElementById('block-container'); // Load Block Container variable.
+  scoreContainer = document.getElementById('score-container'); // Load Block Container variable.
   containerWidth = getPixel(getComputedStyle(blockContainer).width);
   containerHeight = getPixel(getComputedStyle(blockContainer).height);
   playerWidth = getPixel(getComputedStyle(player).width);
@@ -83,6 +86,7 @@ function moveBlocks() {
       const currentRight = getPixel(getComputedStyle(blocks[0]).right);
       if (currentRight > containerWidth) {
         blockContainer.removeChild(blocks[0]);
+        gainPoint();
       }
     }
     moveBlocks();
@@ -95,10 +99,6 @@ function movePlayer() {
 
     const playerTop = getPixel(getComputedStyle(player).top);
     const playerSteps = 5;
-
-    console.log(playerMoveDirection);
-    console.log("oiiiiii", playerTop, margin, playerTop > margin);
-    console.log("aaaa", playerTop - playerHeight, containerHeight - margin, playerTop - playerHeight < containerHeight - margin);
 
     if (playerMoveDirection === 'up' && playerTop > margin) {
       player.style.top = (playerTop - playerSteps) + 'px';
@@ -128,10 +128,13 @@ function checkCollision(block) {
   }
 
   if (checkX && checkY) {
-    console.log('passou x e y e pode acabar');
-    // End the game.
     endGame();
   }
+}
+
+function gainPoint() {
+  score++;
+  scoreContainer.innerHTML = score;
 }
 
 // This method start the main functions of the game.
