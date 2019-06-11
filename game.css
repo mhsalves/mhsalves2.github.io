@@ -53,6 +53,28 @@ body {
   bottom: 0;
 }
 
+#reset-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  display: none;
+}
+
+#reset-container.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#reset-container button {
+  margin: auto;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
 #score-container {
   margin: 16px auto;
   width: 320px;

@@ -4,6 +4,8 @@ var canMovePlayer = true;
 
 var player = null;
 var blockContainer = null;
+var scoreContainer = null;
+var resetContainer = null;
 var step = 6;
 const margin = 8;
 
@@ -54,6 +56,7 @@ function loadGlobally() {
   player = document.getElementById('player'); // Load Player variable.
   blockContainer = document.getElementById('block-container'); // Load Block Container variable.
   scoreContainer = document.getElementById('score-container'); // Load Block Container variable.
+  resetContainer = document.getElementById('reset-container'); // Load Block Container variable.
   containerWidth = getPixel(getComputedStyle(blockContainer).width);
   containerHeight = getPixel(getComputedStyle(blockContainer).height);
   playerWidth = getPixel(getComputedStyle(player).width);
@@ -129,12 +132,21 @@ function checkCollision(block) {
 
   if (checkX && checkY) {
     endGame();
+    showReset(true);
   }
 }
 
 function gainPoint() {
   score++;
   scoreContainer.innerHTML = score;
+}
+
+function showReset(show) {
+  if (show) {
+    resetContainer.classList.add('show');
+    return;
+  }
+  resetContainer.classList.remove('show');
 }
 
 // This method start the main functions of the game.
@@ -151,6 +163,15 @@ function endGame() {
   clearTimeout(moveLoop);
   canMovePlayer = false;
   stopped = true;
+}
+
+function restartGame() {
+  blockContainer.innerHTML = '';
+  canMovePlayer = true;
+  score = -1;
+  gainPoint();
+  player.style = null;
+  showReset(false);
 }
 
 // This method start the game if the game wasn't started.
